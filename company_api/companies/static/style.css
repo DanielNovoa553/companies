@@ -1,0 +1,48 @@
+.container-table {
+    background-color: #fff;
+    border-radius: 10px;
+    margin-top: 3%;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+    height: auto;
+    width: 83%;
+    margin-left: 9.5%;
+    padding: 1%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 10px;
+
+
+}
+
+/* Estilos para pantallas con un ancho de 600px o menos */
+@media screen and (max-width: 600px) {
+    .container-table {
+        width: 100%; /* Hacer que el contenedor ocupe todo el ancho de la pantalla */
+        margin-left: 0; /* Eliminar el margen izquierdo */
+        padding: 1%; /* Reducir el relleno */
+    }
+}
+.centered {
+    margin-top: 1%;
+    text-align: center;
+}
+h1 {
+    font-size: 32px;
+    text-align: center;
+    font-family: platino, serif;
+}
+
+.display{
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+}
+
+.dataTables_filter, .dataTables_info, .dataTables_length, .dataTables_paginate {
+    font-size: 12px;
+
+div .bold-label {
+    font-weight: bold;
+}
+
+#togglePassword {
+    margin-left: 10px;
+}
