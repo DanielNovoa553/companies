@@ -20,15 +20,14 @@ class CompanySerializer(serializers.ModelSerializer):
 
     def validate_symbol(self, value):
         # Validar el símbolo usando el archivo CSV
-        if not is_valid_symbol_in_csv(value):
-            raise serializers.ValidationError("El símbolo no es válido o no está registrado en la NYSE.")
+        if is_valid_symbol_in_csv(value):
+            raise serializers.ValidationError("El símbolo no es válido o  está registrado en la NYSE.")
         return value
 
 
 def is_valid_symbol_in_csv(symbol):
     # Ruta al archivo CSV con los símbolos válidos
     csv_file_path = r'C:\Users\danie\PycharmProjects\companies\company_api\companies\nyse\nyse_symbols.csv'
-
     # Abre y lee el archivo CSV
     try:
         with open(csv_file_path, mode='r') as file:
