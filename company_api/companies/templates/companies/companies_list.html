@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,12 +15,17 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
 <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 <body>
 <div class="container-page">
 <div class="container-data">
     <h1 class="centered">Gestión de Empresas</h1>
     <div class="container-table">
+        <div id="totalRecords" class="totalRecords" style="font-size: 18px; font-weight: semi-bold; color: #000;">
+    Total de empresas registradas: <span id="totalRecordsCount" class="totalRecordsCount">0</span>
+</div>
         <ul class="navbar-nav me-2 mb-2 mb-lg-0">
             <li class="nav-item">
                 <a class="nav-link" href="#" title="Añadir Empresa" onclick="showAddCompanyModal()">
@@ -184,6 +190,10 @@ function loadCompanies() {
     fetch('/get_companies/')
         .then(response => response.json())
         .then(data => {
+            // Actualizar el total de registros
+            const totalRecords = data.companies.length;  // Suponiendo que 'data.companies' es el array de empresas
+            document.getElementById('totalRecordsCount').innerText = totalRecords;
+
             $('#companies').DataTable({
                 destroy: true,
                 data: data.companies, // Asegúrate de que data.companies sea un array de objetos
@@ -252,30 +262,32 @@ function loadCompanies() {
         })
         .catch(error => console.error('Error:', error));
 }
-   function seeCompany(id) {
-    fetch(`/get_company/${id}/`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            // Mostrar los datos en un modal
-            $('#companyModal .modal-body').html(`
-                <p>ID: ${data.id}</p>
-                <p>Name: ${data.name}</p>
-                <p>Description: ${data.description}</p>
-                <p>Symbol: ${data.symbol}</p>
-            `);
-            $('#companyModal').modal('show');
-        })
-        .catch(error => {
-            console.error('There was a problem with the fetch operation:', error);
-        });
+
+
+function seeCompany(id) {
+fetch(`/get_company/${id}/`)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        // Mostrar los datos en un modal
+        $('#companyModal .modal-body').html(`
+            <p>ID: ${data.id}</p>
+            <p>Name: ${data.name}</p>
+            <p>Description: ${data.description}</p>
+            <p>Symbol: ${data.symbol}</p>
+        `);
+        $('#companyModal').modal('show');
+    })
+    .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+    });
 }
 
-    function seeEditCompany(id) {
+function seeEditCompany(id) {
     fetch(`/get_company/${id}/`)
         .then(response => {
             if (!response.ok) {
@@ -289,25 +301,37 @@ function loadCompanies() {
                 <form id="editCompanyForm">
                     <div class="mb-3">
                         <label for="editCompanyName" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="editCompanyName" value="${data.name}">
+                        <input type="text" class="form-control" id="editCompanyName" value="${data.name}" required>
                     </div>
                     <div class="mb-3">
                         <label for="editCompanyDescription" class="form-label">Description</label>
-                        <input type="text" class="form-control" id="editCompanyDescription" value="${data.description}">
+                        <input type="text" class="form-control" id="editCompanyDescription" value="${data.description}" required>
                     </div>
                     <div class="mb-3">
                         <label for="editCompanySymbol" class="form-label">Symbol</label>
-                        <input type="text" class="form-control" id="editCompanySymbol" value="${data.symbol}">
+                        <input type="text" class="form-control" id="editCompanySymbol" value="${data.symbol}" required>
                     </div>
                     <input type="hidden" id="editCompanyId" value="${data.id}">
 
                     <div class="d-flex justify-content-center">
-                        <button type="button" class="btn btn-success me-2" onclick="updateCompany()">Actualizar</button>
+                        <button type="submit" class="btn btn-success me-2">Actualizar</button>
                         <button type="button" class="btn btn-danger" id="cancel" data-bs-dismiss="modal">Cancelar</button>
                     </div>
                 </form>
             `);
             $('#editCompanyModal').modal('show');
+
+            // Agregar evento de submit al formulario
+            document.getElementById('editCompanyForm').addEventListener('submit', function(event) {
+                event.preventDefault(); // Previene el envío automático
+
+                // Verificar si el formulario es válido
+                if (this.checkValidity()) {
+                    updateCompany(); // Llama a la función para actualizar
+                } else {
+                    this.reportValidity(); // Muestra los mensajes de error nativos de HTML5
+                }
+            });
         })
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
@@ -430,7 +454,7 @@ function addCompany() {
 }
 
 function deleteCompany(id) {
-    if (confirm('Are you sure you want to delete this company?')) {
+    if (confirm('¿Estas seguro de eliminar esta empresa?')) {
         fetch(`/delete_company/${id}/`, {
             method: 'DELETE',
             headers: {
@@ -461,6 +485,9 @@ function showSuccessModal(message) {
 document.getElementById('successModalBody').innerText = message;
 $('#successModal').modal('show');
 }
+
+
+
 
 </script>
 </body>
