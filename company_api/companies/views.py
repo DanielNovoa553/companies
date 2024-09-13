@@ -1,10 +1,8 @@
 import csv
 from uuid import UUID
-
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import generics
 from rest_framework.generics import get_object_or_404
-
 from .models import Company
 from .serializers import CompanySerializer
 import logging
@@ -90,6 +88,7 @@ def get_company(request, id):
     except Company.DoesNotExist:
         return JsonResponse({'error': 'Company not found'}, status=404)
 
+
 @csrf_exempt
 def update_company(request, id):
     """ Vista para actualizar una compañía
@@ -171,6 +170,7 @@ def add_company(request):
             return JsonResponse({'error': str(e)}, status=400)
     return JsonResponse({'error': 'Invalid HTTP method'}, status=405)
 
+
 @csrf_exempt
 def delete_company(request, id):
     if request.method == 'DELETE':
@@ -184,7 +184,7 @@ def delete_company(request, id):
             return JsonResponse({'error': str(e)}, status=400)
     return JsonResponse({'error': 'Invalid HTTP method'}, status=405)
 
-@csrf_exempt
+
 @csrf_exempt
 def get_company_details(request, id):
     """ Vista para obtener los detalles de una compañía y los datos de mercado de los últimos 7 días
