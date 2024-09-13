@@ -1,19 +1,19 @@
 import csv
+import os
 from uuid import UUID
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import generics
 from .models import Company
 from .serializers import CompanySerializer
 import logging
-from django.http import HttpResponse, JsonResponse
-from django.views import View
+from django.http import JsonResponse
 from django.shortcuts import render
 import json
 import requests
 
 # Configuración del logger
 logger = logging.getLogger(__name__)
-
+api_key = os.getenv('ALPHA_VANTAGE_API_KEY')
 
 # Vista para listar y crear compañías
 class CompanyListCreate(generics.ListCreateAPIView):
@@ -30,24 +30,13 @@ class CompanyListCreate(generics.ListCreateAPIView):
             logger.error(f"Error al crear la compañía: {str(e)}")
             raise e
 
+
 # Vista para leer, actualizar y eliminar una compañía
 class CompanyDetail(generics.RetrieveUpdateDestroyAPIView):
     """ Vista para leer, actualizar y eliminar una compañía
     Args: generics.RetrieveUpdateDestroyAPIView: Vista genérica de Django REST framework"""
     queryset = Company.objects.all()
     serializer_class = CompanySerializer
-
-
-class TestErrorView(View):
-    """ Vista para probar el logging"""
-    def get(self, request):
-        try:
-            # Genera un error para probar el logging
-            raise ValueError("Este es un error de prueba para logging")
-        except Exception as e:
-            # Registra el error
-            logger.error("Error en TestErrorView: %s", str(e))
-            return HttpResponse("Error registrado en logs.", status=500)
 
 
 # Vista para renderizar HTML
@@ -172,6 +161,11 @@ def add_company(request):
 
 @csrf_exempt
 def delete_company(request, id):
+    """ Vista para eliminar una compañía
+    Args: request (HttpRequest): La petición HTTP, id (UUID): El ID de la compañía
+    Returns: JsonResponse: La respuesta JSON
+    Raises Company.DoesNotExist: Si la compañía no existe"""
+
     if request.method == 'DELETE':
         try:
             company = Company.objects.get(id=id)
@@ -203,7 +197,6 @@ def get_company_details(request, id):
         company = Company.objects.get(id=id)
 
         # Llamar a la API externa para obtener los datos de mercado de los últimos 7 días
-        api_key = 'K8MYDA6MMSAZD2T7'
         symbol = company.symbol  # El símbolo de la acción de la compañía
         market_data_url = f'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={symbol}&apikey={api_key}'
         response = requests.get(market_data_url)
