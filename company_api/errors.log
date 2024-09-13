@@ -1840,3 +1840,48 @@ Traceback (most recent call last):
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 TypeError: get_company_details() got multiple values for argument 'id'
 ERROR 2024-09-12 21:10:14,884 basehttp "GET /get_company_details/a8df52b8-fdcc-4844-8cde-872a00e30948/ HTTP/1.1" 500 66918
+ERROR 2024-09-12 22:26:41,572 log Internal Server Error: /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/
+ERROR 2024-09-12 22:26:41,574 basehttp "GET /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/ HTTP/1.1" 500 42
+ERROR 2024-09-12 22:26:50,369 log Internal Server Error: /get_company_details/caa2a631-889c-4438-8360-3fbbacd20b6f/
+ERROR 2024-09-12 22:26:50,370 basehttp "GET /get_company_details/caa2a631-889c-4438-8360-3fbbacd20b6f/ HTTP/1.1" 500 42
+ERROR 2024-09-12 22:27:03,983 log Internal Server Error: /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/
+ERROR 2024-09-12 22:27:03,984 basehttp "GET /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/ HTTP/1.1" 500 42
+ERROR 2024-09-12 22:27:37,811 log Internal Server Error: /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/
+ERROR 2024-09-12 22:27:37,812 basehttp "GET /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/ HTTP/1.1" 500 42
+ERROR 2024-09-12 22:34:58,042 log Internal Server Error: /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/
+ERROR 2024-09-12 22:34:58,043 basehttp "GET /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/ HTTP/1.1" 500 34
+ERROR 2024-09-12 22:35:05,633 log Internal Server Error: /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/
+ERROR 2024-09-12 22:35:05,634 basehttp "GET /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/ HTTP/1.1" 500 34
+ERROR 2024-09-12 22:35:18,846 log Internal Server Error: /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/
+ERROR 2024-09-12 22:35:18,848 basehttp "GET /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/ HTTP/1.1" 500 34
+ERROR 2024-09-12 22:35:44,690 log Internal Server Error: /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/
+ERROR 2024-09-12 22:35:44,692 basehttp "GET /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/ HTTP/1.1" 500 34
+ERROR 2024-09-12 22:36:05,793 log Internal Server Error: /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/
+ERROR 2024-09-12 22:36:05,794 basehttp "GET /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/ HTTP/1.1" 500 34
+ERROR 2024-09-12 22:36:09,694 log Internal Server Error: /get_company_details/caa2a631-889c-4438-8360-3fbbacd20b6f/
+ERROR 2024-09-12 22:36:09,695 basehttp "GET /get_company_details/caa2a631-889c-4438-8360-3fbbacd20b6f/ HTTP/1.1" 500 34
+ERROR 2024-09-12 22:36:19,049 log Internal Server Error: /get_company_details/a8df52b8-fdcc-4844-8cde-872a00e30948/
+ERROR 2024-09-12 22:36:19,050 basehttp "GET /get_company_details/a8df52b8-fdcc-4844-8cde-872a00e30948/ HTTP/1.1" 500 34
+ERROR 2024-09-12 22:37:27,728 log Internal Server Error: /get_company_details/a8df52b8-fdcc-4844-8cde-872a00e30948/
+ERROR 2024-09-12 22:37:27,729 basehttp "GET /get_company_details/a8df52b8-fdcc-4844-8cde-872a00e30948/ HTTP/1.1" 500 34
+ERROR 2024-09-12 22:37:30,429 log Internal Server Error: /get_company_details/a8df52b8-fdcc-4844-8cde-872a00e30948/
+ERROR 2024-09-12 22:37:30,430 basehttp "GET /get_company_details/a8df52b8-fdcc-4844-8cde-872a00e30948/ HTTP/1.1" 500 34
+ERROR 2024-09-12 22:38:37,970 log Internal Server Error: /get_company_details/a8df52b8-fdcc-4844-8cde-872a00e30948/
+ERROR 2024-09-12 22:38:37,971 basehttp "GET /get_company_details/a8df52b8-fdcc-4844-8cde-872a00e30948/ HTTP/1.1" 500 34
+ERROR 2024-09-12 22:38:39,926 log Internal Server Error: /get_company_details/a8df52b8-fdcc-4844-8cde-872a00e30948/
+ERROR 2024-09-12 22:38:39,927 basehttp "GET /get_company_details/a8df52b8-fdcc-4844-8cde-872a00e30948/ HTTP/1.1" 500 34
+ERROR 2024-09-12 22:39:05,846 log Internal Server Error: /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/
+ERROR 2024-09-12 22:39:05,847 basehttp "GET /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/ HTTP/1.1" 500 34
+ERROR 2024-09-12 22:39:37,324 log Internal Server Error: /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/
+ERROR 2024-09-12 22:39:37,325 basehttp "GET /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/ HTTP/1.1" 500 34
+ERROR 2024-09-12 22:40:20,849 log Internal Server Error: /get_company_details/2d5bc66b-321e-46ec-95ca-a29eb6863c05/
+ERROR 2024-09-12 22:40:20,851 basehttp "GET /get_company_details/2d5bc66b-321e-46ec-95ca-a29eb6863c05/ HTTP/1.1" 500 34
+-------------
+ERROR 2024-09-12 22:40:53,071 log Internal Server Error: /get_company_details/2d5bc66b-321e-46ec-95ca-a29eb6863c05/
+ERROR 2024-09-12 22:40:53,072 basehttp "GET /get_company_details/2d5bc66b-321e-46ec-95ca-a29eb6863c05/ HTTP/1.1" 500 34
+ERROR 2024-09-12 22:42:20,301 log Internal Server Error: /get_company_details/2d5bc66b-321e-46ec-95ca-a29eb6863c05/
+ERROR 2024-09-12 22:42:20,302 basehttp "GET /get_company_details/2d5bc66b-321e-46ec-95ca-a29eb6863c05/ HTTP/1.1" 500 34
+ERROR 2024-09-12 22:43:06,367 log Internal Server Error: /get_company_details/a8df52b8-fdcc-4844-8cde-872a00e30948/
+ERROR 2024-09-12 22:43:06,368 basehttp "GET /get_company_details/a8df52b8-fdcc-4844-8cde-872a00e30948/ HTTP/1.1" 500 34
+ERROR 2024-09-12 22:43:08,123 log Internal Server Error: /get_company_details/a8df52b8-fdcc-4844-8cde-872a00e30948/
+ERROR 2024-09-12 22:43:08,124 basehttp "GET /get_company_details/a8df52b8-fdcc-4844-8cde-872a00e30948/ HTTP/1.1" 500 34

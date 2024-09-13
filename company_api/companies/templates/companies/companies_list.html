@@ -17,6 +17,11 @@
 <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+<style>
+    .wide-date-column {
+    width: 200px; /* Ajuste o valor conforme necessário */
+}
+</style>
 </head>
 <body>
 <div class="container-page">
@@ -59,7 +64,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="companyModalLabel">Company Details</h5>
+        <h5 class="modal-title" id="companyModalLabel">Valores de los ultimos 7 dias</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -263,28 +268,46 @@ function loadCompanies() {
         .catch(error => console.error('Error:', error));
 }
 
-
 function seeCompany(id) {
-fetch(`/get_company/${id}/`)
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(data => {
-        // Mostrar los datos en un modal
-        $('#companyModal .modal-body').html(`
-            <p>ID: ${data.id}</p>
-            <p>Name: ${data.name}</p>
-            <p>Description: ${data.description}</p>
-            <p>Symbol: ${data.symbol}</p>
-        `);
-        $('#companyModal').modal('show');
-    })
-    .catch(error => {
-        console.error('There was a problem with the fetch operation:', error);
-    });
+    fetch(`/get_company_details/${id}/`)
+        .then(response => {
+            if (!response.ok) {
+                return response.json().then(errorData => {
+                    throw new Error(errorData.error);
+                });
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Response data:', data); // Log the response data for debugging
+            if (data.error) {
+                showErrorModal(data.error);
+            } else if (data.company && Array.isArray(data.company)) {
+                // Construir el contenido del modal con los datos de la compañía
+                let modalBody = `<h5>Detalles de la Compañía: ${data.companyName}</h5>`;
+                modalBody += '<table class="table table-striped">';
+                modalBody += '<thead><tr><th style="width: 200px;">Fecha</th><th>Open</th><th>High</th><th>Low</th><th>Close</th><th>Volume</th></tr></thead>';
+                modalBody += '<tbody>';
+                data.company.forEach(dayData => {
+                    const date = dayData[0];
+                    const details = dayData[1];
+                    modalBody += `<tr><td>${date}</td><td>${details['1. open']}</td><td>${details['2. high']}</td><td>${details['3. low']}</td><td>${details['4. close']}</td><td>${details['5. volume']}</td></tr>`;
+                });
+                modalBody += '</tbody></table>';
+
+                // Insertar el contenido en el modal
+                document.querySelector('#companyModal .modal-body').innerHTML = modalBody;
+
+                // Mostrar el modal
+                $('#companyModal').modal('show');
+            } else {
+                showErrorModal('No company data available');
+            }
+        })
+        .catch(error => {
+            showErrorModal(`¡ERROR fetching company details!: ${error.message}`);
+            console.error('Error:', error);
+        });
 }
 
 function seeEditCompany(id) {

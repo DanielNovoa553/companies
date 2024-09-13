@@ -2,7 +2,6 @@ import csv
 from uuid import UUID
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import generics
-from rest_framework.generics import get_object_or_404
 from .models import Company
 from .serializers import CompanySerializer
 import logging
@@ -186,6 +185,7 @@ def delete_company(request, id):
 
 
 @csrf_exempt
+@csrf_exempt
 def get_company_details(request, id):
     """ Vista para obtener los detalles de una compañía y los datos de mercado de los últimos 7 días
     Args:
@@ -208,9 +208,14 @@ def get_company_details(request, id):
         market_data_url = f'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={symbol}&apikey={api_key}'
         response = requests.get(market_data_url)
         market_data = response.json()
-        # obtiene los datos de los últimos 7 días
+
+        # Verificar si la respuesta contiene un mensaje de información
+        if "Information" in market_data:
+            return JsonResponse({'error': market_data["Information"]}, status=429)
+
+        # Obtener los datos de los últimos 7 días
         last_7_days = list(market_data['Time Series (Daily)'].items())[:7]
-        return JsonResponse({'company': last_7_days})
+        return JsonResponse({'company': last_7_days, 'companyName': company.name})
     except Company.DoesNotExist:
         return JsonResponse({'error': 'Company not found'}, status=404)
     except requests.RequestException as e:
