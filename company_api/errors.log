@@ -1389,3 +1389,454 @@ Traceback (most recent call last):
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 TypeError: delete_company() got an unexpected keyword argument 'id'
 ERROR 2024-09-11 23:14:53,539 basehttp "DELETE /delete_company/a40a18e8-65d8-458c-bd02-8b9f573076b7/ HTTP/1.1" 500 64703
+ERROR 2024-09-12 20:04:11,660 log Internal Server Error: /get_company_details/
+ERROR 2024-09-12 20:04:11,661 basehttp "GET /get_company_details/ HTTP/1.1" 500 94
+ERROR 2024-09-12 20:15:35,171 log Internal Server Error: /get_company_details/
+ERROR 2024-09-12 20:15:35,172 basehttp "GET /get_company_details/ HTTP/1.1" 500 94
+ERROR 2024-09-12 20:16:56,996 log Internal Server Error: /get_company_details/
+ERROR 2024-09-12 20:16:56,997 basehttp "GET /get_company_details/ HTTP/1.1" 500 60
+ERROR 2024-09-12 20:17:01,776 log Internal Server Error: /get_company_details/
+ERROR 2024-09-12 20:17:01,777 basehttp "GET /get_company_details/ HTTP/1.1" 500 60
+ERROR 2024-09-12 20:18:07,906 log Internal Server Error: /get_company_details/
+Traceback (most recent call last):
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_company_details() missing 1 required positional argument: 'company_id'
+ERROR 2024-09-12 20:18:07,908 basehttp "GET /get_company_details/ HTTP/1.1" 500 64490
+ERROR 2024-09-12 20:18:08,942 log Internal Server Error: /get_company_details/
+Traceback (most recent call last):
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_company_details() missing 1 required positional argument: 'company_id'
+ERROR 2024-09-12 20:18:08,942 basehttp "GET /get_company_details/ HTTP/1.1" 500 64490
+ERROR 2024-09-12 20:18:09,776 log Internal Server Error: /get_company_details/
+Traceback (most recent call last):
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_company_details() missing 1 required positional argument: 'company_id'
+ERROR 2024-09-12 20:18:09,776 basehttp "GET /get_company_details/ HTTP/1.1" 500 64490
+ERROR 2024-09-12 20:20:32,531 log Internal Server Error: /get_company_details/
+Traceback (most recent call last):
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_company_details() missing 1 required positional argument: 'company_id'
+ERROR 2024-09-12 20:20:32,531 basehttp "GET /get_company_details/ HTTP/1.1" 500 68377
+ERROR 2024-09-12 20:20:57,972 log Internal Server Error: /get_company_details/
+ERROR 2024-09-12 20:20:57,972 basehttp "GET /get_company_details/ HTTP/1.1" 500 60
+ERROR 2024-09-12 20:31:48,437 log Internal Server Error: /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/
+Traceback (most recent call last):
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_company_details() got an unexpected keyword argument 'id'
+ERROR 2024-09-12 20:31:48,437 basehttp "GET /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/ HTTP/1.1" 500 68942
+ERROR 2024-09-12 20:38:13,824 log Internal Server Error: /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/
+Traceback (most recent call last):
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_company_details() got an unexpected keyword argument 'id'
+ERROR 2024-09-12 20:38:13,825 basehttp "GET /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/ HTTP/1.1" 500 68805
+ERROR 2024-09-12 20:39:19,309 log Internal Server Error: /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/
+Traceback (most recent call last):
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_company_details() got an unexpected keyword argument 'id'
+ERROR 2024-09-12 20:39:19,309 basehttp "GET /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/ HTTP/1.1" 500 68942
+ERROR 2024-09-12 20:39:20,614 log Internal Server Error: /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/
+Traceback (most recent call last):
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_company_details() got an unexpected keyword argument 'id'
+ERROR 2024-09-12 20:39:20,631 basehttp "GET /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/ HTTP/1.1" 500 68942
+ERROR 2024-09-12 20:39:53,383 log Internal Server Error: /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/
+Traceback (most recent call last):
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_company_details() got an unexpected keyword argument 'id'
+ERROR 2024-09-12 20:39:53,383 basehttp "GET /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/ HTTP/1.1" 500 68805
+ERROR 2024-09-12 20:40:41,153 log Internal Server Error: /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/
+Traceback (most recent call last):
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_company_details() got multiple values for argument 'id'
+ERROR 2024-09-12 20:40:41,169 basehttp "GET /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/ HTTP/1.1" 500 68934
+ERROR 2024-09-12 20:40:41,971 log Internal Server Error: /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/
+Traceback (most recent call last):
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_company_details() got multiple values for argument 'id'
+ERROR 2024-09-12 20:40:41,971 basehttp "GET /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/ HTTP/1.1" 500 68934
+ERROR 2024-09-12 20:40:42,187 log Internal Server Error: /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/
+Traceback (most recent call last):
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_company_details() got multiple values for argument 'id'
+ERROR 2024-09-12 20:40:42,187 basehttp "GET /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/ HTTP/1.1" 500 68934
+ERROR 2024-09-12 20:40:42,408 log Internal Server Error: /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/
+Traceback (most recent call last):
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_company_details() got multiple values for argument 'id'
+ERROR 2024-09-12 20:40:42,408 basehttp "GET /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/ HTTP/1.1" 500 68934
+ERROR 2024-09-12 20:40:42,653 log Internal Server Error: /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/
+Traceback (most recent call last):
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_company_details() got multiple values for argument 'id'
+ERROR 2024-09-12 20:40:42,653 basehttp "GET /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/ HTTP/1.1" 500 68934
+ERROR 2024-09-12 20:40:42,869 log Internal Server Error: /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/
+Traceback (most recent call last):
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_company_details() got multiple values for argument 'id'
+ERROR 2024-09-12 20:40:42,871 basehttp "GET /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/ HTTP/1.1" 500 68934
+ERROR 2024-09-12 20:40:43,088 log Internal Server Error: /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/
+Traceback (most recent call last):
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_company_details() got multiple values for argument 'id'
+ERROR 2024-09-12 20:40:43,103 basehttp "GET /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/ HTTP/1.1" 500 68934
+ERROR 2024-09-12 20:40:43,589 log Internal Server Error: /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/
+Traceback (most recent call last):
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_company_details() got multiple values for argument 'id'
+ERROR 2024-09-12 20:40:43,589 basehttp "GET /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/ HTTP/1.1" 500 68934
+ERROR 2024-09-12 20:42:35,627 log Internal Server Error: /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/
+Traceback (most recent call last):
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_company_details() got multiple values for argument 'id'
+ERROR 2024-09-12 20:42:35,627 basehttp "GET /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/ HTTP/1.1" 500 68934
+ERROR 2024-09-12 20:44:49,836 log Internal Server Error: /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/
+Traceback (most recent call last):
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_company_details() got multiple values for argument 'id'
+ERROR 2024-09-12 20:44:49,838 basehttp "GET /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/ HTTP/1.1" 500 66918
+ERROR 2024-09-12 20:45:05,613 log Internal Server Error: /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/
+Traceback (most recent call last):
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_company_details() got multiple values for argument 'id'
+ERROR 2024-09-12 20:45:05,614 basehttp "GET /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/ HTTP/1.1" 500 66918
+ERROR 2024-09-12 20:46:30,048 log Internal Server Error: /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/
+Traceback (most recent call last):
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_company_details() got multiple values for argument 'id'
+ERROR 2024-09-12 20:46:30,051 basehttp "GET /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/ HTTP/1.1" 500 68938
+ERROR 2024-09-12 20:47:27,435 log Internal Server Error: /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/
+Traceback (most recent call last):
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_company_details() got multiple values for argument 'id'
+ERROR 2024-09-12 20:47:27,440 basehttp "GET /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/ HTTP/1.1" 500 69075
+ERROR 2024-09-12 20:48:39,424 log Internal Server Error: /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/
+Traceback (most recent call last):
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_company_details() got multiple values for argument 'id'
+ERROR 2024-09-12 20:48:39,429 basehttp "GET /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/ HTTP/1.1" 500 69075
+ERROR 2024-09-12 20:48:41,157 log Internal Server Error: /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/
+Traceback (most recent call last):
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_company_details() got multiple values for argument 'id'
+ERROR 2024-09-12 20:48:41,160 basehttp "GET /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/ HTTP/1.1" 500 69075
+ERROR 2024-09-12 20:48:45,860 log Internal Server Error: /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/
+Traceback (most recent call last):
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_company_details() got multiple values for argument 'id'
+ERROR 2024-09-12 20:48:45,864 basehttp "GET /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/ HTTP/1.1" 500 66918
+ERROR 2024-09-12 20:49:04,532 log Internal Server Error: /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/
+Traceback (most recent call last):
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_company_details() got multiple values for argument 'id'
+ERROR 2024-09-12 20:49:04,538 basehttp "GET /get_company_details/c1582342-eb07-46d3-905d-0c753a580e87/ HTTP/1.1" 500 66918
+ERROR 2024-09-12 21:06:12,201 log Internal Server Error: /get_company_details/a8df52b8-fdcc-4844-8cde-872a00e30948/
+Traceback (most recent call last):
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_company_details() got multiple values for argument 'id'
+ERROR 2024-09-12 21:06:12,205 basehttp "GET /get_company_details/a8df52b8-fdcc-4844-8cde-872a00e30948/ HTTP/1.1" 500 66918
+ERROR 2024-09-12 21:09:37,016 log Internal Server Error: /get_company_details/a8df52b8-fdcc-4844-8cde-872a00e30948/
+ERROR 2024-09-12 21:09:37,017 basehttp "GET /get_company_details/a8df52b8-fdcc-4844-8cde-872a00e30948/ HTTP/1.1" 500 60
+ERROR 2024-09-12 21:10:14,880 log Internal Server Error: /get_company_details/a8df52b8-fdcc-4844-8cde-872a00e30948/
+Traceback (most recent call last):
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\PycharmProjects\companies\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_company_details() got multiple values for argument 'id'
+ERROR 2024-09-12 21:10:14,884 basehttp "GET /get_company_details/a8df52b8-fdcc-4844-8cde-872a00e30948/ HTTP/1.1" 500 66918
