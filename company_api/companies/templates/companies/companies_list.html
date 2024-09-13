@@ -17,11 +17,6 @@
 <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-<style>
-    .wide-date-column {
-    width: 200px; /* Ajuste o valor conforme necessário */
-}
-</style>
 </head>
 <body>
 <div class="container-page">
@@ -273,6 +268,7 @@ function loadCompanies() {
         .catch(error => console.error('Error:', error));
 }
 
+
 function seeCompany(id) {
     fetch(`/get_company_details/${id}/`)
         .then(response => {
@@ -314,6 +310,7 @@ function seeCompany(id) {
             console.error('Error:', error);
         });
 }
+
 
 function seeEditCompany(id) {
     fetch(`/get_company/${id}/`)
@@ -366,6 +363,7 @@ function seeEditCompany(id) {
         });
 }
 
+
 function updateCompany() {
     const id = $('#editCompanyId').val();
     const name = $('#editCompanyName').val();
@@ -400,6 +398,7 @@ function updateCompany() {
     });
 }
 
+
 function getCookie(name) {
     let cookieValue = null;
     if (document.cookie && document.cookie !== '') {
@@ -415,18 +414,22 @@ function getCookie(name) {
     return cookieValue;
 }
 
+
  function showErrorModal(message) {
     document.getElementById('errorModalBody').innerText = message;
     $('#errorModal').modal('show');
 }
 
+
     function cleanForm() {
     document.getElementById('companyForm').reset();
 }
 
+
     function showAddCompanyModal() {
     $('#modalAddCompany').modal('show');
 }
+
 
 document.getElementById('companyForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Previene el envío del formulario por defecto
@@ -438,14 +441,17 @@ document.getElementById('companyForm').addEventListener('submit', function(event
     }
 });
 
+
 function showConfirmationModal(message) {
     document.getElementById('confirmationModalBody').innerText = message;
     $('#confirmationModal').modal('show');
 }
 
+
 function cleanFormAdd() {
     document.getElementById('companyForm').reset();
 }
+
 
 function addCompany() {
     const name = $('#nombre').val();
@@ -481,6 +487,7 @@ function addCompany() {
     });
 }
 
+
 function deleteCompany(id) {
     if (confirm('¿Estas seguro de eliminar esta empresa?')) {
         fetch(`/delete_company/${id}/`, {
@@ -513,10 +520,6 @@ function showSuccessModal(message) {
 document.getElementById('successModalBody').innerText = message;
 $('#successModal').modal('show');
 }
-
-
-
-
 </script>
 </body>
 </html>

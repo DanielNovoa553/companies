@@ -13,7 +13,6 @@ urlpatterns = [
     path('add_company/', add_company, name='add_company'), # Añadir una compañía (API)
     path('delete_company/<uuid:id>/', delete_company, name='delete_company'), # Eliminar una compañía (API)
     path('get_company_details/<uuid:id>/', get_company_details, name='get_company_details'), # Obtener los detalles de una compañía (API)
-
 ]
 
 
