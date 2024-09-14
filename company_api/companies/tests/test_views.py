@@ -4,10 +4,6 @@ from django.urls import reverse
 from rest_framework.test import APIClient
 from company_api.companies.models import Company
 from uuid import uuid4
-import sys
-import os
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
 
 @pytest.mark.django_db
 def test_get_company():

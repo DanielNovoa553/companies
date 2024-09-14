@@ -624,10 +624,6 @@ function showCompanyGraph(id) {
 
                         // Show the modal
                         $('#graphicModal').modal('show');
-                        // destroy the previous chart instance
-                        if (marketChartInstance) {
-                            marketChartInstance.destroy();
-                        }
                     } else {
                         showErrorModal('Failed to get canvas context');
                     }
@@ -642,6 +638,10 @@ function showCompanyGraph(id) {
             showErrorModal(`Error fetching company details: ${error.message}`);
             console.error('Error:', error);
         });
+    // destroy the previous chart instance
+    if (marketChartInstance) {
+        marketChartInstance.destroy();
+    }
 }
 </script>
 </body>
