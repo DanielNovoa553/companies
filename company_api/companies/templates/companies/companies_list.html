@@ -15,6 +15,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
 <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
@@ -177,6 +178,24 @@
     </div>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="graphicModal" tabindex="-1" aria-labelledby="companyModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="graphicModalLabel">Valores de los últimos 7 días del mercado</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <canvas id="marketChart" width="300" height="300"></canvas>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
@@ -227,7 +246,7 @@ function loadCompanies() {
                                                 <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
                                             </svg>
                                         </a>
-                                        <a class="nav-link ms-4" href="#" title="Ver grafica ultimos 7 dias" onclick="">
+                                        <a class="nav-link ms-4" href="#" title="Ver grafica ultimos 7 dias" onclick="showCompanyGraph('${data.id}')">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-graph-up-arrow" viewBox="0 0 16 16">
                                                   <path fill-rule="evenodd" d="M0 0h1v15h15v1H0zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5"/>
                                                 </svg>
@@ -399,22 +418,6 @@ function updateCompany() {
 }
 
 
-function getCookie(name) {
-    let cookieValue = null;
-    if (document.cookie && document.cookie !== '') {
-        const cookies = document.cookie.split(';');
-        for (let i = 0; i < cookies.length; i++) {
-            const cookie = cookies[i].trim();
-            if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                break;
-            }
-        }
-    }
-    return cookieValue;
-}
-
-
  function showErrorModal(message) {
     document.getElementById('errorModalBody').innerText = message;
     $('#errorModal').modal('show');
@@ -516,9 +519,129 @@ function deleteCompany(id) {
         });
     }
 }
+
+
 function showSuccessModal(message) {
 document.getElementById('successModalBody').innerText = message;
 $('#successModal').modal('show');
+}
+
+let marketChartInstance = null;
+function showCompanyGraph(id) {
+    fetch(`/get_company_details/${id}/`)
+        .then(response => {
+            if (!response.ok) {
+                return response.json().then(errorData => {
+                    throw new Error(errorData.error);
+                });
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.error) {
+                showErrorModal(data.error);
+            } else if (data.company && Array.isArray(data.company)) {
+                // Prepare data for the chart
+                const labels = data.company.map(dayData => dayData[0]);
+                const openPrices = data.company.map(dayData => parseFloat(dayData[1]['1. open']));
+                const highPrices = data.company.map(dayData => parseFloat(dayData[1]['2. high']));
+                const lowPrices = data.company.map(dayData => parseFloat(dayData[1]['3. low']));
+                const closePrices = data.company.map(dayData => parseFloat(dayData[1]['4. close']));
+
+                // Get the canvas element and its context
+                const canvas = document.getElementById('marketChart');
+                if (canvas) {
+                    // Adjust canvas size
+                    canvas.width = 400;
+                    canvas.height = 300;
+
+                    const ctx = canvas.getContext('2d');
+                    if (ctx) {
+                        new Chart(ctx, {
+                            type: 'line',
+                            data: {
+                                labels: labels,
+                                datasets: [
+                                    {
+                                        label: 'Open',
+                                        data: openPrices,
+                                        borderColor: 'rgba(75, 192, 192, 1)',
+                                        borderWidth: 1,
+                                        fill: false
+                                    },
+                                    {
+                                        label: 'High',
+                                        data: highPrices,
+                                        borderColor: 'rgba(54, 162, 235, 1)',
+                                        borderWidth: 1,
+                                        fill: false
+                                    },
+                                    {
+                                        label: 'Low',
+                                        data: lowPrices,
+                                        borderColor: 'rgba(255, 206, 86, 1)',
+                                        borderWidth: 1,
+                                        fill: false
+                                    },
+                                    {
+                                        label: 'Close',
+                                        data: closePrices,
+                                        borderColor: 'rgba(153, 102, 255, 1)',
+                                        borderWidth: 1,
+                                        fill: false
+                                    }
+                                ]
+                            },
+                            options: {
+                                responsive: true,
+                                scales: {
+                                    x: {
+                                        display: true,
+                                        title: {
+                                            display: true,
+                                            text: 'Date'
+                                        }
+                                    },
+                                    y: {
+                                        display: true,
+                                        title: {
+                                            display: true,
+                                            text: 'Price'
+                                        }
+                                    }
+                                }
+                            }
+                        });
+
+                        // Adjust modal size
+                        const modalDialog = document.querySelector('#graphicModal .modal-dialog');
+                        modalDialog.classList.remove('modal-sm');
+                        modalDialog.classList.add('modal-lg');
+
+                        // Set the company name in the modal title
+                        const modalTitle = document.getElementById('graphicModalLabel');
+                        modalTitle.textContent = `Valores de los últimos 7 días de ${data.companyName}`;
+
+                        // Show the modal
+                        $('#graphicModal').modal('show');
+                        // destroy the previous chart instance
+                        if (marketChartInstance) {
+                            marketChartInstance.destroy();
+                        }
+                    } else {
+                        showErrorModal('Failed to get canvas context');
+                    }
+                } else {
+                    showErrorModal('Canvas element not found');
+                }
+            } else {
+                showErrorModal('No company data available');
+            }
+        })
+        .catch(error => {
+            showErrorModal(`Error fetching company details: ${error.message}`);
+            console.error('Error:', error);
+        });
 }
 </script>
 </body>

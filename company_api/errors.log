@@ -1885,3 +1885,17 @@ ERROR 2024-09-12 22:43:06,367 log Internal Server Error: /get_company_details/a8
 ERROR 2024-09-12 22:43:06,368 basehttp "GET /get_company_details/a8df52b8-fdcc-4844-8cde-872a00e30948/ HTTP/1.1" 500 34
 ERROR 2024-09-12 22:43:08,123 log Internal Server Error: /get_company_details/a8df52b8-fdcc-4844-8cde-872a00e30948/
 ERROR 2024-09-12 22:43:08,124 basehttp "GET /get_company_details/a8df52b8-fdcc-4844-8cde-872a00e30948/ HTTP/1.1" 500 34
+ERROR 2024-09-13 19:55:48,778 log Internal Server Error: /get_company_details/b1cbf73a-0cbc-48e3-bed0-2f3246c68c06/
+ERROR 2024-09-13 19:55:48,779 basehttp "GET /get_company_details/b1cbf73a-0cbc-48e3-bed0-2f3246c68c06/ HTTP/1.1" 500 367
+ERROR 2024-09-13 19:56:52,034 log Internal Server Error: /get_company_details/b1cbf73a-0cbc-48e3-bed0-2f3246c68c06/
+ERROR 2024-09-13 19:56:52,034 log Internal Server Error: /get_company_details/caa2a631-889c-4438-8360-3fbbacd20b6f/
+ERROR 2024-09-13 19:56:52,034 log Internal Server Error: /get_company_details/a8df52b8-fdcc-4844-8cde-872a00e30948/
+ERROR 2024-09-13 19:56:52,034 basehttp "GET /get_company_details/b1cbf73a-0cbc-48e3-bed0-2f3246c68c06/ HTTP/1.1" 500 367
+ERROR 2024-09-13 19:56:52,034 basehttp "GET /get_company_details/caa2a631-889c-4438-8360-3fbbacd20b6f/ HTTP/1.1" 500 367
+ERROR 2024-09-13 19:56:52,034 basehttp "GET /get_company_details/a8df52b8-fdcc-4844-8cde-872a00e30948/ HTTP/1.1" 500 366
+ERROR 2024-09-13 19:56:59,014 log Internal Server Error: /get_company_details/b1cbf73a-0cbc-48e3-bed0-2f3246c68c06/
+ERROR 2024-09-13 19:56:59,014 basehttp "GET /get_company_details/b1cbf73a-0cbc-48e3-bed0-2f3246c68c06/ HTTP/1.1" 500 367
+ERROR 2024-09-13 19:57:02,937 log Internal Server Error: /get_company_details/a8df52b8-fdcc-4844-8cde-872a00e30948/
+ERROR 2024-09-13 19:57:02,938 basehttp "GET /get_company_details/a8df52b8-fdcc-4844-8cde-872a00e30948/ HTTP/1.1" 500 366
+ERROR 2024-09-13 19:57:05,421 log Internal Server Error: /get_company_details/b1cbf73a-0cbc-48e3-bed0-2f3246c68c06/
+ERROR 2024-09-13 19:57:05,421 basehttp "GET /get_company_details/b1cbf73a-0cbc-48e3-bed0-2f3246c68c06/ HTTP/1.1" 500 367

@@ -13,6 +13,8 @@ import requests
 
 # Configuración del logger
 logger = logging.getLogger(__name__)
+
+# Clave de la API de Alpha Vantage
 api_key = os.getenv('ALPHA_VANTAGE_API_KEY')
 
 # Vista para listar y crear compañías
