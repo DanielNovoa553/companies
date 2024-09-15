@@ -1,2 +1,5 @@
 # Ignorar archivos de entorno
 .env
+
+# Ingnorar script register_company.py
+register_company.py

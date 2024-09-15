@@ -196,6 +196,25 @@
   </div>
 </div>
 
+<!-- Modal de Confirmación de Eliminación -->
+<div class="modal fade" id="deleteConfirmationModal" tabindex="-1" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteConfirmationModalLabel">Confirmar Eliminación</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ¿Estás seguro de que deseas eliminar esta empresa?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" id="confirmDeleteButton">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
@@ -405,6 +424,7 @@ function updateCompany() {
         .then(data => {
             if (response.ok) {
                 $('#editCompanyModal').modal('hide');
+                showSuccessModal('Empresa modificada correctamente');
                 loadCompanies();  // Refresh the companies table
             } else {
                 // Show server validation error message
@@ -417,6 +437,11 @@ function updateCompany() {
     });
 }
 
+
+function showSuccessModal(message) {
+    document.getElementById('successModalBody').innerText = message;
+    $('#successModal').modal('show');
+}
 
  function showErrorModal(message) {
     document.getElementById('errorModalBody').innerText = message;
@@ -492,7 +517,12 @@ function addCompany() {
 
 
 function deleteCompany(id) {
-    if (confirm('¿Estas seguro de eliminar esta empresa?')) {
+    // Mostrar el modal de confirmación
+    $('#deleteConfirmationModal').modal('show');
+
+    // Agregar un evento al botón de confirmación de eliminación
+    document.getElementById('confirmDeleteButton').onclick = function() {
+        // Realizar la solicitud de eliminación
         fetch(`/delete_company/${id}/`, {
             method: 'DELETE',
             headers: {
@@ -510,23 +540,24 @@ function deleteCompany(id) {
             }
         })
         .then(data => {
-             $('#successModal').modal('hide');
+            $('#deleteConfirmationModal').modal('hide');
             showSuccessModal('Empresa eliminada correctamente');
             loadCompanies();  // Refresh the companies table
         })
         .catch(error => {
             showErrorModal(error.message);  // Display error in a modal
         });
-    }
+    };
 }
-
 
 function showSuccessModal(message) {
 document.getElementById('successModalBody').innerText = message;
 $('#successModal').modal('show');
 }
 
+
 let marketChartInstance = null;
+
 function showCompanyGraph(id) {
     fetch(`/get_company_details/${id}/`)
         .then(response => {
@@ -557,7 +588,13 @@ function showCompanyGraph(id) {
 
                     const ctx = canvas.getContext('2d');
                     if (ctx) {
-                        new Chart(ctx, {
+                        // Destroy the previous chart instance if it exists
+                        if (marketChartInstance) {
+                            marketChartInstance.destroy();
+                        }
+
+                        // Create the new chart and store it in the global variable
+                        marketChartInstance = new Chart(ctx, {
                             type: 'line',
                             data: {
                                 labels: labels,
@@ -638,10 +675,23 @@ function showCompanyGraph(id) {
             showErrorModal(`Error fetching company details: ${error.message}`);
             console.error('Error:', error);
         });
-    // destroy the previous chart instance
-    if (marketChartInstance) {
-        marketChartInstance.destroy();
+}
+
+
+function getCookie(name) {
+let cookieValue = null;
+if (document.cookie && document.cookie !== '') {
+    const cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i].trim();
+        // Does this cookie string begin with the name we want?
+        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+        }
     }
+}
+return cookieValue;
 }
 </script>
 </body>
