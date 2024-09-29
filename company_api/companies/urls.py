@@ -5,6 +5,7 @@ from . import views
 # URLs de la aplicación companies
 urlpatterns = [
     path('companies/', companies_list_view, name='companies-list'),  # Vista para renderizar el HTML
+    path('dashboard/', views.dashboard, name='dashboard'),  # Vista para renderizar el dashboard
     path('companies/api/', CompanyListCreate.as_view(), name='company-list-create'),  # Listar y crear compañías (API)
     path('companies/<uuid:pk>/', CompanyDetail.as_view(), name='company-detail'),  # Leer, actualizar y eliminar compañías (API)
     path('get_companies/', company_data_view, name='get-companies'), # Obtener todas las compañías (API)

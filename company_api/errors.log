@@ -1901,3 +1901,9 @@ ERROR 2024-09-13 19:57:05,421 log Internal Server Error: /get_company_details/b1
 ERROR 2024-09-13 19:57:05,421 basehttp "GET /get_company_details/b1cbf73a-0cbc-48e3-bed0-2f3246c68c06/ HTTP/1.1" 500 367
 ERROR 2024-09-15 14:51:53,687 log Internal Server Error: /get_company_details/15762934-c855-40f0-8cbc-092f98a76e7a/
 ERROR 2024-09-15 14:51:53,689 basehttp "GET /get_company_details/15762934-c855-40f0-8cbc-092f98a76e7a/ HTTP/1.1" 500 34
+ERROR 2024-09-15 18:05:35,366 log Internal Server Error: /get_company_details/2d4794ec-33bb-4261-bd78-d477471b2f4c/
+ERROR 2024-09-15 18:05:35,367 basehttp "GET /get_company_details/2d4794ec-33bb-4261-bd78-d477471b2f4c/ HTTP/1.1" 500 34
+ERROR 2024-09-29 03:55:31,538 log Internal Server Error: /get_company_details/fa4c10cb-9924-4495-a555-9cfd636fbbb4/
+ERROR 2024-09-29 03:55:31,541 basehttp "GET /get_company_details/fa4c10cb-9924-4495-a555-9cfd636fbbb4/ HTTP/1.1" 500 34
+ERROR 2024-09-29 04:01:11,404 log Internal Server Error: /get_company_details/3bcce95a-95ce-4b58-af2c-a5659d2a9336/
+ERROR 2024-09-29 04:01:11,404 basehttp "GET /get_company_details/3bcce95a-95ce-4b58-af2c-a5659d2a9336/ HTTP/1.1" 500 34

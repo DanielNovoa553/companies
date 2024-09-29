@@ -48,6 +48,13 @@ def companies_list_view(request):
     Returns: HttpResponse: La respuesta HTTP"""
     return render(request, 'companies/companies_list.html')
 
+# Vista para renderizar el dashboard
+def dashboard(request):
+    """ Vista para renderizar el dashboard
+    Args: request (HttpRequest): La petición HTTP
+    Returns: HttpResponse: La respuesta HTTP"""
+    return render(request, 'companies/dashboard.html')
+
 
 def company_data_view(request):
     """ Vista para obtener todas las compañías
@@ -180,7 +187,6 @@ def delete_company(request, id):
     return JsonResponse({'error': 'Invalid HTTP method'}, status=405)
 
 
-@csrf_exempt
 @csrf_exempt
 def get_company_details(request, id):
     """ Vista para obtener los detalles de una compañía y los datos de mercado de los últimos 7 días

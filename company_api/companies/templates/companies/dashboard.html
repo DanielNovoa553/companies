@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfica y Tabla</title>
+    <!-- Incluir Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Incluir Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Incluir chartjs-adapter-date-fns -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+</head>
+<body>
+<div class="container mt-5">
+    <h2 class="text-center" id="company-name">Dashboard Valores semanal</h2>
+    <br>
+    <button class="btn btn-success mb-3" id="back-button">Regresar a Companies</button>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    Gráfica Valores semanales
+                </div>
+                <div class="card-body">
+                    <canvas id="myChart" width="400" height="290"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    Volores del mercado semanal
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Open</th>
+                                <th>High</th>
+                                <th>Low</th>
+                                <th>Close</th>
+                                <th>Volume</th>
+                            </tr>
+                        </thead>
+                        <tbody id="market-data-table-body">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+
+<!-- Modal -->
+<div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="errorModalLabel">Error</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="error-modal-body">
+                <!-- El mensaje de error se mostrará aquí -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close-modal-button">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const companyId = urlParams.get('id');
+
+    if (companyId) {
+        fetch(`/get_company_details/${companyId}/`)
+            .then(response => {
+                if (!response.ok) {
+                    return response.json().then(errorData => {
+                        throw new Error(errorData.error);
+                    });
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.error) {
+                    console.error('Error from API:', data.error);
+                    const errorModalBody = document.getElementById('error-modal-body');
+                    errorModalBody.textContent = `¡ERROR fetching company details!: ${data.error}`;
+                    $('#errorModal').modal('show');
+                } else {
+                    console.log('Data received:', data);
+
+                    // Update the company name in the header
+                    const companyNameElement = document.getElementById('company-name');
+                    companyNameElement.textContent = `Dashboard Valores semanal - ${data.companyName}`;
+
+                    // Populate the table with market data
+                    const tableBody = document.getElementById('market-data-table-body');
+                    const dates = [];
+                    const openPrices = [];
+                    const highPrices = [];
+                    const lowPrices = [];
+                    const closePrices = [];
+                    const volumes = [];
+                    data.company.forEach(dayData => {
+                        const date = dayData[0];
+                        const marketData = dayData[1];
+                        dates.push(date);
+                        openPrices.push(marketData['1. open']);
+                        highPrices.push(marketData['2. high']);
+                        lowPrices.push(marketData['3. low']);
+                        closePrices.push(marketData['4. close']);
+                        volumes.push(marketData['5. volume']);
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${date}</td>
+                            <td>${marketData['1. open']}</td>
+                            <td>${marketData['2. high']}</td>
+                            <td>${marketData['3. low']}</td>
+                            <td>${marketData['4. close']}</td>
+                            <td>${marketData['5. volume']}</td>
+                        `;
+                        tableBody.appendChild(row);
+                    });
+
+                    // Create the chart
+                    const ctx = document.getElementById('myChart').getContext('2d');
+                    new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: dates,
+                            datasets: [
+                                {
+                                    label: 'Open',
+                                    data: openPrices,
+                                    borderColor: 'rgba(255, 99, 132, 1)',
+                                    borderWidth: 1,
+                                    fill: false
+                                },
+                                {
+                                    label: 'High',
+                                    data: highPrices,
+                                    borderColor: 'rgba(54, 162, 235, 1)',
+                                    borderWidth: 1,
+                                    fill: false
+                                },
+                                {
+                                    label: 'Low',
+                                    data: lowPrices,
+                                    borderColor: 'rgba(255, 206, 86, 1)',
+                                    borderWidth: 1,
+                                    fill: false
+                                },
+                                {
+                                    label: 'Close',
+                                    data: closePrices,
+                                    borderColor: 'rgba(75, 192, 192, 1)',
+                                    borderWidth: 1,
+                                    fill: false
+                                },
+                                {
+                                    label: 'Volume',
+                                    data: volumes,
+                                    borderColor: 'rgba(153, 102, 255, 1)',
+                                    borderWidth: 1,
+                                    fill: false
+                                }
+                            ]
+                        },
+                        options: {
+                            scales: {
+                                x: {
+                                    type: 'time',
+                                    time: {
+                                        unit: 'day'
+                                    }
+                                },
+                                y: {
+                                    beginAtZero: false
+                                }
+                            }
+                        }
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching company details:', error);
+                const errorModalBody = document.getElementById('error-modal-body');
+                errorModalBody.textContent = `¡ERROR fetching company details!: ${error.message}`;
+                $('#errorModal').modal('show');
+            });
+    } else {
+        console.error('No company ID found in URL');
+        const errorModalBody = document.getElementById('error-modal-body');
+        errorModalBody.textContent = 'No company ID found in URL';
+        $('#errorModal').modal('show');
+    }
+
+    // Add event listener to the modal to redirect to companies.html when it is hidden
+    $('#errorModal').on('hidden.bs.modal', function () {
+        window.location.href = '/companies/';
+    });
+
+    // Add event listener to the back button to redirect to companies.html
+    document.getElementById('back-button').addEventListener('click', function() {
+        window.location.href = '/companies/';
+    });
+});
+</script>
+
+<!-- Incluir Bootstrap JS y dependencias -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
