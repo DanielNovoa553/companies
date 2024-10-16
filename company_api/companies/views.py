@@ -10,6 +10,7 @@ from django.http import JsonResponse
 from django.shortcuts import render
 import json
 import requests
+from django.core.paginator import Paginator, EmptyPage
 
 # Configuración del logger
 logger = logging.getLogger(__name__)
@@ -56,14 +57,50 @@ def dashboard(request):
     return render(request, 'companies/dashboard.html')
 
 
-def company_data_view(request):
-    """ Vista para obtener todas las compañías
+def get_companies(request):
+    """ Vista para obtener todas las compañías con paginación, búsqueda y ordenación.
     Args: request (HttpRequest): La petición HTTP
     Returns: JsonResponse: La respuesta JSON"""
 
-    companies = Company.objects.all()
-    serializer = CompanySerializer(companies, many=True)
-    return JsonResponse({"companies": serializer.data}, safe=False)
+    start = int(request.GET.get('start', 0))  # Índice del primer registro a mostrar
+    length = int(request.GET.get('length', 10))  # Número de registros a mostrar
+    search_value = request.GET.get('search[value]', '')  # Valor de búsqueda
+    order_column = request.GET.get('order[0][column]', '0')  # Columna a ordenar
+    order_dir = request.GET.get('order[0][dir]', 'asc')  # Dirección del orden (ascendente o descendente)
+
+    # Definir las columnas para ordenar según el índice de las columnas de DataTable
+    order_columns = ['id', 'name', 'description', 'symbol']
+
+    # Filtrar los datos según el valor de búsqueda (si hay uno)
+    if search_value:
+        companies = Company.objects.filter(name__icontains=search_value)
+    else:
+        companies = Company.objects.all()
+
+    # Ordenar los datos
+    if order_column in ['0', '1', '2', '3']:  # Verifica que la columna exista
+        order_field = order_columns[int(order_column)]
+        if order_dir == 'desc':
+            order_field = '-' + order_field
+        companies = companies.order_by(order_field)
+
+    # Contar el total de registros (antes de la paginación)
+    total_records = companies.count()
+
+    # Aplicar paginación manual
+    companies_paginated = companies[start:start + length]
+
+    # Serializar los datos
+    serializer = CompanySerializer(companies_paginated, many=True)
+
+    # Preparar la respuesta JSON con el formato {"companies": [...], "recordsTotal": x, "recordsFiltered": y}
+    response = {
+        'companies': serializer.data,        # Datos paginados y serializados
+        'recordsTotal': total_records,       # Total de registros en la base de datos (antes de cualquier filtrado)
+        'recordsFiltered': total_records     # Total de registros después del filtrado (iguales si no se usa búsqueda)
+    }
+
+    return JsonResponse(response, safe=False)
 
 
 def get_company(request, id):

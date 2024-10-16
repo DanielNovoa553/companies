@@ -3,3 +3,6 @@
 
 # Ingnorar script register_company.py
 register_company.py
+
+# Ignorar carpeta de apuntes
+companies/apuntes.txt
