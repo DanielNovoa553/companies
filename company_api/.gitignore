@@ -5,4 +5,4 @@
 register_company.py
 
 # Ignorar carpeta de apuntes
-companies/apuntes.txt
+apuntes.txt

@@ -1,4 +1,4 @@
-# datatables cargado en ekl frontend
+# datatables cargado en el frontend
 function loadCompanies() {
     fetch('/get_companies/')
         .then(response => response.json())
